@@ -1,0 +1,10 @@
+.popup__input_invalid {
+  border-bottom: 1px solid #FF0000;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__input_invalid {
+    margin-bottom: 0;
+  }
+}

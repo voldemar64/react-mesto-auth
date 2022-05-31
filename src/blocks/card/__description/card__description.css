@@ -1,0 +1,12 @@
+.card__description {
+  display: flex;
+  justify-content: space-between;
+  width: 87.2%;
+  padding: 21px 15px 26px 21px;
+}
+
+@media screen and (max-width: 767px) {
+  .card__description {
+    padding: 21px 15px 25px 21px;
+  }
+}

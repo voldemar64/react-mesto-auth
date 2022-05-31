@@ -1,0 +1,45 @@
+.profile__edit-avatar {
+  width: 120px;
+  height: 120px;
+  margin-right: 3.4%;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  background-color: transparent;
+}
+
+.profile__edit-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 120px;
+  height: 120px;
+  border: none;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.8s ease-in-out;
+}
+
+.profile__edit-avatar:hover::before {
+  background-color: rgba(0, 0, 0, 0.8);
+  background-image: url('../../../images/pen.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-color .3s;
+}
+
+@media screen and (max-width: 1023px) {
+  .profile__edit-avatar {
+    margin-right: 0;
+    margin-bottom: 26px;
+  }
+}
+
+.profile__.profile__edit-avatar:focus {
+  outline: #5982fa 3px solid;
+}

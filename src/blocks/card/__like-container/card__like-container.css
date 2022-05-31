@@ -1,0 +1,5 @@
+.card__like-container {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4.8px;
+}

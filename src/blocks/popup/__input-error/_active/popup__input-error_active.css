@@ -1,0 +1,17 @@
+.popup__input-error {
+  display: inline;
+  font-family: 'Inter', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  margin: 5px 0 11.4px 36px;
+  align-self: flex-start;
+  color: #FF0000;
+}
+
+@media screen and (max-width: 767px) {
+  .popup__input-error {
+    margin-bottom: 5px;
+    margin-left: 25px;
+  }
+}
