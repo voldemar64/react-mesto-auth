@@ -9,12 +9,7 @@ export function register(email, password) {
     },
     body: JSON.stringify({password: password, email: email})
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject(res.status)
-    })
+    .then(handleRes)
     .catch(err => console.log(`не удалось зарегистрироваться: ${err}`))
 }
 
@@ -27,12 +22,7 @@ export function authorize(email, password) {
     },
     body: JSON.stringify({password: password, email: email})
 })
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject(res.status)
-    })
+    .then(handleRes)
     .catch(err => console.log(`не удалось авторизоваться: ${err}`))
 }
 
@@ -44,11 +34,14 @@ export function checkToken(token) {
       'Authorization': `Bearer ${token}`,
     }
   })
-    .then(res => {
-      if (res.ok) {
-        return res.json()
-      }
-      return Promise.reject(res.status)
-    })
+    .then(handleRes)
     .catch(err => console.log(err))
+}
+
+function handleRes(res) {
+  if (res.ok) {
+    return res.json();
+  } else {
+    return Promise.reject(console.log(`Ошибка: ${res.status}`));
+  }
 }

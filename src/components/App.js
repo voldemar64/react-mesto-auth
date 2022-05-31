@@ -17,7 +17,6 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext.js';
 import tick from '../images/tick.svg';
 import cross from '../images/cross.svg';
 
-
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = React.useState(false)
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = React.useState(false)
@@ -28,23 +27,26 @@ function App() {
   const [cards, setCards] = React.useState([])
   const [loggedIn, setLoggedIn] = React.useState(false)
   const [mailName, setMailName] = React.useState('')
+  const [popupParams, setPopupParams] = React.useState({title: '', photo: ''})
   const [popupTitle, setPopupTitle] = React.useState('')
   const [popupPhoto, setPopupPhoto] = React.useState('')
   const history = useHistory()
 
 
   React.useEffect(() => {
-    Promise.all([api.getUserInfo(), api.getInitialCards()])
-    .then(([userData, cards]) => {
-      setCurrentUser(userData)
-      setCards(cards)
-    })
-    .catch(err => console.log(`Ошибка при изначальной отрисовке данных: ${err}`));
-  }, [])
+    if (loggedIn) {
+      Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([userData, cards]) => {
+        setCurrentUser(userData)
+        setCards(cards)
+      })
+      .catch(err => console.log(`Ошибка при изначальной отрисовке данных: ${err}`));
+    }
+  }, [loggedIn])
 
   React.useEffect(() => {
-    if (localStorage.getItem('jwt')){
-      const jwt = localStorage.getItem('jwt');
+    const jwt = localStorage.getItem('jwt');
+    if (jwt){
       auth.checkToken(jwt)
         .then(res => {
           if (res) {
@@ -56,12 +58,23 @@ function App() {
     }
   }, [])
 
+  React.useEffect(() => {
+    if (loggedIn) {
+      history.push('/')
+    }
+  }, [loggedIn])
+
   function handleRegister(email, password) {
     auth.register(email, password)
-      .then(() => {
-        setPopupTitle('Вы успешно зарегистрировались!')
-        setPopupPhoto(tick)
-        history.push('/sign-in')
+      .then(res => {
+        if (res) {
+          setPopupTitle('Вы успешно зарегистрировались!')
+          setPopupPhoto(tick)
+          history.push('/sign-in')
+        } else{
+          setPopupTitle('Что-то пошло не так! Попробуйте ещё раз.')
+          setPopupPhoto(cross)
+        }
       })
       .catch(() => {
         setPopupTitle('Что-то пошло не так! Попробуйте ещё раз.')
@@ -73,10 +86,21 @@ function App() {
   function handleLogin(email, password) {
     auth.authorize(email, password)
       .then(res => {
-        setLoggedIn(true)
-        setMailName(email)
-        localStorage.setItem('jwt', res.token)
-        history.push('/')
+        if (res) {
+          setLoggedIn(true)
+          setMailName(email)
+          localStorage.setItem('jwt', res.token)
+          history.push('/')
+        } else{
+          setPopupTitle('Что-то пошло не так! Попробуйте ещё раз.')
+          setPopupPhoto(cross)
+          handleInfoTooltip()
+        }
+      })
+      .catch(() => {
+        setPopupTitle('Что-то пошло не так! Попробуйте ещё раз.')
+        setPopupPhoto(cross)
+        handleInfoTooltip()
       })
   }
 
