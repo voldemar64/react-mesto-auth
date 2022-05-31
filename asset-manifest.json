@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.0ea0b6b9.css",
-    "main.js": "./static/js/main.7706591c.js",
+    "main.css": "./static/css/main.621b151f.css",
+    "main.js": "./static/js/main.bc509ef6.js",
     "static/js/787.2df4b1c8.chunk.js": "./static/js/787.2df4b1c8.chunk.js",
     "static/media/Inter-Medium.woff": "./static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Black.woff": "./static/media/Inter-Black.c6938660eec019fefd68.woff",
@@ -10,7 +10,9 @@
     "static/media/Inter-Black.woff2": "./static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
     "static/media/Inter-Regular.woff2": "./static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
     "static/media/logo.svg": "./static/media/logo.5f3664cac9eb5a3ac37010a11a74b19d.svg",
+    "static/media/cross.svg": "./static/media/cross.df8eddf661ff88f2d0efd3d570d14309.svg",
     "static/media/like.svg": "./static/media/like.5126b6ad6039c01c21cb.svg",
+    "static/media/tick.svg": "./static/media/tick.1b6082f862eac35e2514460237d96ecc.svg",
     "static/media/trash.svg": "./static/media/trash.fb3bbd7ea18a84c4c3eb.svg",
     "index.html": "./index.html",
     "static/media/like_active.svg": "./static/media/like_active.f9a4ca80cece5e116ddc.svg",
@@ -20,12 +22,12 @@
     "static/media/plus-320.svg": "./static/media/plus-320.7cfa48c5b11b68ad8f31.svg",
     "static/media/plus.svg": "./static/media/plus.cd5f8b5c096644f5ab0c.svg",
     "static/media/close_icon-320.svg": "./static/media/close_icon-320.303abf83123104596605.svg",
-    "main.0ea0b6b9.css.map": "./static/css/main.0ea0b6b9.css.map",
-    "main.7706591c.js.map": "./static/js/main.7706591c.js.map",
+    "main.621b151f.css.map": "./static/css/main.621b151f.css.map",
+    "main.bc509ef6.js.map": "./static/js/main.bc509ef6.js.map",
     "787.2df4b1c8.chunk.js.map": "./static/js/787.2df4b1c8.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ea0b6b9.css",
-    "static/js/main.7706591c.js"
+    "static/css/main.621b151f.css",
+    "static/js/main.bc509ef6.js"
   ]
 }
